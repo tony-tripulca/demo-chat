@@ -8,5 +8,8 @@
     "watch": "nodemon server.js"
   },
   "author": "tony.tripulca",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }

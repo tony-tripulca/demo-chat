@@ -1,5 +1,8 @@
-var fs = require('fs');
+var express = require('express');
+var app = express();
 
-fs.readdir("/var/www/html", (err, data) => {
-    console.log(data);
+app.use(express.static("./public"));
+
+var server = app.listen(3000, () => {
+    console.log("Server is listening on port", server.address().port);
 });
