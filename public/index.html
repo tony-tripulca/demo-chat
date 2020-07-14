@@ -46,7 +46,7 @@
         <script src="/socket.io/socket.io.js"></script>
         <script>
             var socket = io();
-            
+
             $(() => {
                 $('#send-button').on('click', function () {
                     postMessage({
@@ -54,14 +54,16 @@
                         message: $('#message').val(),
                     });
                 });
-                getMessage();
+                getMessages();
             });
+
+            socket.on('message', addMessage);
 
             function addMessage(data) {
                 $('#messages').append(`<p><b>${data.name}:</b> ${data.message}</p>`);
             }
 
-            function getMessage() {
+            function getMessages() {
                 $.ajax({
                     type: 'GET',
                     url: 'http://localhost:3000/messages',
