@@ -57,12 +57,21 @@
                 getMessages();
             });
 
+            /**
+             * Push event from the server
+             */
             socket.on('message', addMessage);
 
+            /**
+             * Display message on front-end
+             */
             function addMessage(data) {
                 $('#messages').append(`<p><b>${data.name}:</b> ${data.message}</p>`);
             }
 
+            /**
+             * Fetch messages from the server
+             */
             function getMessages() {
                 $.ajax({
                     type: 'GET',
@@ -78,6 +87,9 @@
                     });
             }
 
+            /**
+             * Post messages and save it to mongodb
+             */
             function postMessage(data) {
                 $.ajax({
                     type: 'POST',
